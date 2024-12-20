@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Summarization App</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #summary-output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Text Summarization App</h1>
+
+    <form id="summarization-form">
+        <textarea id="dialogue-input" placeholder="Enter your text here..."></textarea><br><br>
+        <button onclick="summarizeText()">Summarize</button><br><br>
+    </form>
+
+    <div id="summary-output"></div>
+
+    <script>
+        document.getElementById("summarization-form").addEventListener('submit', async (e) => {
+            e.preventDefault()
+            const dialogue = document.getElementById('dialogue-input').value;
+            const response = await fetch("/summarize/", {
+                method: "POST",
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({dialogue})
+            })
+
+            const data = await response.json();
+            document.getElementById("summary-output").innerHTML = data.summary;
+        })
+    </script>
+
+</body>
+
+</html>
+
+
