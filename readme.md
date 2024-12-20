@@ -8,15 +8,15 @@
 
 # Commands to setup Virtual Environment (in Windows) :-
 
-=> to Install virtual environment : pip install virtualenv
+=> to Install virtual environment :: pip install virtualenv
 
-=> to Create virtual environment : virtualenv <my_virtual_environment>
+=> to Create virtual environment :: virtualenv <my_virtual_environment>
 
-=> to Activate virtual environment : <my_virtual_environment>/Scripts/activate
+=> to Activate virtual environment :: <my_virtual_environment>/Scripts/activate
 
-=> to Install required packages in virtual environment : pip install -r ./requirements.txt
+=> to Install required packages in virtual environment :: pip install -r ./requirements.txt
 
-=> to Deactivate virtual environment : deactivate
+=> to Deactivate virtual environment :: deactivate
 
 
 # Steps to get the trained model :-
